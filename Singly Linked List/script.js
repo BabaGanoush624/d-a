@@ -6,7 +6,7 @@ class Node {
     }
 };
 
-//Creatign a SinglyLinkedList
+//Creating a SinglyLinkedList
 class SinglyLinkedList {
     constructor() {
         this.head = null
@@ -25,6 +25,28 @@ class SinglyLinkedList {
         }
         this.length++;
         return this;
+    }
+
+    pop() {
+        if (!this.head) {
+            return undefined;
+        }
+
+        let current = this.head;
+        let previous = current;
+        while(current.next) {
+            previous = current;
+            current = current.next;
+        }
+        
+        this.tail = previous;
+        this.tail.next = null;
+        this.length--;
+        if (this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return current;
     }
 }
 
