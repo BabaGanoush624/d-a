@@ -52,8 +52,7 @@ class SinglyLinkedList {
     shift() {
         if (!this.head) return undefined;
         let current = this.head;
-        this.head = this.head.next;
-        current = null;
+        this.head = current.next;
         this.length--;
         if (this.length === 0){
             this.head = null;
