@@ -38,11 +38,24 @@ class SinglyLinkedList {
             previous = current;
             current = current.next;
         }
-        
+
         this.tail = previous;
         this.tail.next = null;
         this.length--;
         if (this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return current;
+    }
+
+    shift() {
+        if (!this.head) return undefined;
+        let current = this.head;
+        this.head = this.head.next;
+        current = null;
+        this.length--;
+        if (this.length === 0){
             this.head = null;
             this.tail = null;
         }
